@@ -1,26 +1,47 @@
-import { createContext, useState } from "react";
-const EmojiContext = createContext() 
+import { React, createContext, useState } from "react";
+import Emoji from "./Emoji";
 
-const DisplayEmojiContext = () => {
-    
-    const [face, newFace] = useState('😀');
-    const [emojiCount, setEmojiCount] = useState(0);
+
+ const EmojiContext = createContext();
+
+ export const Provider = ({children}) => {
+
+    const [Face, setFace] = useState("😀");
+
 
     const handleChangeFace = () => {
-        newFace(face === "😀" ? "🤩" : "🤗");
-        setEmojiCount(emojiCount +1)
+        setFace(Face === "😀" ? "🤩" : "🤗");
+
+        // while (emojiCount < setEmojiCount) {
+        //     setEmojiCount = emojiCount + 1
+        //     return setEmojiCount}
+
+        
     }
+    // const handleEmojiCount = () => {
+    //     setEmojiCount(emojiCount +1)
+    //     return setEmojiCount
+    // }
 
     return (
         <div>
-            <EmojiContext>
-            <button onClick={handleChangeFace}>Get Excited</button>
-            <p>{face}</p>
-            </EmojiContext>
+            <EmojiContext.Provider value = {{Face, handleChangeFace}}>
+            {children}
+            </EmojiContext.Provider>
     
             </div>
             );
-            }
+           
+};
 
-export default DisplayEmojiContext;
+export default EmojiContext;
+
+
+
+ 
+
+
+
+
+
 

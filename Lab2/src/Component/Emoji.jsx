@@ -1,24 +1,30 @@
-//  @TODO3 - Completely migrate the Emoji component into a separate one with its own state (leave App 
-// component to be stateless).
-//Display another emoji, which is the same as that in the Emoji component and reflects when ‘Change Mood’ 
-//is clicked, next to the time within the Clock component. (Hint: useContext).
-import React from 'react';
-import { useState } from 'react';
+import { useState } from "react";
+import EmojiContext from "./EmojiContext";
+import { useContext } from "react";
 
 function Emoji() {
-  const [face, newFace] = useState('😀');
 
-  const handleChangeFace = () => {
-      newFace(face === "😀" ? "🤩" : "🤗");
+  const { Face, handleChangeFace } = useContext(EmojiContext);
+  const [emojiCount, setEmojiCount] = useState(0)
+
+
+  const handleEmojiCount = () => {
+  while (emojiCount < setEmojiCount) {
+    setEmojiCount = emojiCount + 1
+    return setEmojiCount
   }
-  return (
-      <div>
-          
-          <button onClick={handleChangeFace}>Get Excited</button>
-          <p>{face}</p>
-          </div>
-          );
-          }
-          export default Emoji;
+  }
 
 
+return (
+  <div>
+    <p>{Face}</p>
+
+    <button onClick={handleChangeFace}>Get Excited</button>
+    <p>{handleEmojiCount}</p>
+    
+    
+  </div>
+);
+}
+export default Emoji;
