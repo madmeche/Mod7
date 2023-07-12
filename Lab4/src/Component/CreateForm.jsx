@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
 
 export default function BasicTextFields() {
   return (
@@ -7,17 +8,18 @@ export default function BasicTextFields() {
       component="form"
       sx={{
         "& > :not(style)": { m: 1, width: "25ch" },
-        backgroundColor:'linen',
+        backgroundColor:'white',
         display:'flex',
         flexDirection:'column',
       }}
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="standard-basic" label="Standard" variant="standard" />
+      <TextField id="outlined-basic" label="username" variant="outlined" />
+      <TextField id="standard-basic" label="password" variant="standard" />
+      <Link to='/post'>
       <button>Submit</button>
+      </Link>
     </Box>
   );
 }

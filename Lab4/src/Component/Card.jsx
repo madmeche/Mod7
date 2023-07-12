@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -19,8 +19,11 @@ export default function BasicCard() {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
+        
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          This is a post.
+          This is your Profile. 
+          <br></br>
+          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile Pic" height='150px'></img>
         </Typography>
         <Typography variant="h5" component="div">
           {bull}Insert Inspiring Words Here{bull}
@@ -29,13 +32,14 @@ export default function BasicCard() {
           
         </Typography> */}
         <Typography variant="body2">
-          More meaningful words or picture here
+          More personal stuff here.
           <br />
-          {/* {'"a benevolent smile"'} */}
         </Typography>
       </CardContent>
       <CardActions>
+        <Link to='/'>
         <Button size="small">Home</Button>
+        </Link>
       </CardActions>
     </Card>
   );
